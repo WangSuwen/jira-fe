@@ -29,7 +29,7 @@ const AccessKey= '';
 const SecretKey= '';
 
 qiniuUpload.getBaseUrl=function () {
-    return 'http://p5zjfy9ql.bkt.clouddn.com/';
+    return '';
 }
 
 

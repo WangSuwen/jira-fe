@@ -12,11 +12,7 @@ util.title = function (title) {
 
 
 
-const ajaxUrl = env === 'development'
-    ? 'http://101.236.33.124:8080/'
-    : env === 'production'
-        ? 'http://101.236.33.124:8080/'
-        : 'http://101.236.33.124:8080/';
+const ajaxUrl = 'localhost:3000';
 
 let token= getToken();
 util.ajax = axios.create({
