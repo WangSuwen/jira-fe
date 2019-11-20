@@ -44,7 +44,7 @@
 
                         <FormItem label="商品分类：" prop="categoryIds">
                             <Select style="width:200px" v-model="product.categoryIds" multiple placeholder="根节点">
-                                <Option v-for="item in categorys" :value="item.id">{{item.name}}</Option>
+                                <Option v-for="item in categorys" :value="item.id" :key="item.id">{{item.name}}</Option>
                             </Select>
                         </FormItem>
                         <FormItem label="商品运费：">

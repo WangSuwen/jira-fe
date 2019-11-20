@@ -25,7 +25,7 @@
             <Form ref="categoryModel" :model="categoryModel" :label-width="80" :rules="validate">
                 <FormItem label="上级分类：" style="width: 300px">
                     <Select style="width:200px" v-model="categoryModel.parentId" placeholder="根节点">
-                        <Option v-for="item in categorieData" :value="item.id">{{item.breadName}}</Option>
+                        <Option v-for="item in categorieData" :value="item.id" :key="item.id">{{item.breadName}}</Option>
                     </Select>
                 </FormItem>
                 <FormItem label="分类名称：" style="width: 300px" prop="name">
