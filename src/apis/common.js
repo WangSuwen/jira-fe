@@ -4,11 +4,12 @@ import util from '../libs/util';
 export default {
 
     //登陆
-    async login(userName,passWord) {
+    async login(account, password) {
         var result;
-        await util.ajax.post("/api/v1/op/login",{userName:userName,password:passWord}).then(function (data) {
-            if (data.status==200)
-            {
+        debugger;
+        await util.ajax.post("/users/login",{ account, password }).then(function (data) {
+            debugger;
+            if (data.code==200) {
                 result = data.data;
             }
         });
@@ -18,7 +19,7 @@ export default {
     async updateStore(param) {
         var result;
         await util.ajax.post("/api/v1/op/store",param).then(function (data) {
-            if (data.status==200)
+            if (data.code==200)
             {
                 result = data.data;
             }
@@ -29,7 +30,7 @@ export default {
     async getStore(param) {
         var result;
         await util.ajax.get("/api/v1/op/store",param).then(function (data) {
-            if (data.status==200)
+            if (data.code==200)
             {
                 result = data.data;
             }
@@ -39,7 +40,7 @@ export default {
     async getQiNiuToken() {
         var result;
         await util.ajax.get("/api/v1/op/qiniu").then(function (data) {
-            if (data.status==200)
+            if (data.code==200)
             {
                 result = data.data;
             }

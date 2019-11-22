@@ -169,9 +169,6 @@ const app = {
         setCurrentPageName (state, name) {
             state.currentPageName = name;
         },
-        setAvator (state, path) {
-            localStorage.avatorImgPath = path;
-        },
         clearOpenedSubmenu (state) {
             state.openedSubmenuArr.length = 0;
         },

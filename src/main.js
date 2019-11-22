@@ -1,10 +1,13 @@
 import Vue from 'vue';
-import iView from 'iview';
+// import iView from 'iview';
+// import 'iview/dist/styles/iview.css';
+import iView from 'view-design';
+// import style
+import 'view-design/dist/styles/iview.css';
 import {router} from './router/index';
 import {appRouter} from './router/router';
 import store from './store';
 import App from './app.vue';
-import 'iview/dist/styles/iview.css';
 import { VirtualScroller } from 'vue-virtual-scroller';
 
 Vue.use(iView);

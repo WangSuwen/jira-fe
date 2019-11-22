@@ -1,7 +1,9 @@
 import Cookies from 'js-cookie';
 
 const user = {
-    state: {},
+    state: {
+        avatorImgPath: '' // 头像链接
+    },
     mutations: {
         logout (state, vm) {
             Cookies.remove('user');
@@ -19,6 +21,9 @@ const user = {
             if (theme) {
                 localStorage.theme = theme;
             }
+        },
+        setAvator (state, path) {
+            state.avatorImgPath = path;
         }
     }
 };
