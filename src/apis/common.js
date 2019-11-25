@@ -1,20 +1,6 @@
 import util from '../libs/util';
 
-
 export default {
-
-    //登陆
-    async login(account, password) {
-        var result;
-        debugger;
-        await util.ajax.post("/users/login",{ account, password }).then(function (data) {
-            debugger;
-            if (data.code==200) {
-                result = data.data;
-            }
-        });
-        return result;
-    },
     //修改店铺信息
     async updateStore(param) {
         var result;

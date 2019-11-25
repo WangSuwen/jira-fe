@@ -22,7 +22,6 @@
                             <Button @click="handleSubmit" type="primary" long>登录</Button>
                         </FormItem>
                     </Form>
-                    <p class="login-tip">输入任意用户名和密码即可</p>
                 </div>
             </Card>
         </div>
@@ -32,7 +31,7 @@
 
 <script>
     import Cookies from 'js-cookie';
-    import api from '@/apis/common';
+    import api from '@/apis/user.js';
 
     export default {
         data() {
@@ -59,36 +58,19 @@
         },
         methods: {
             handleSubmit() {
-                debugger;
                 this.$refs.loginForm.validate((valid) => {
                     if (valid) {
-                        api.login(this.form.account, this.form.password).then(data => {
-                            debugger;
-                            if (data.code !== 200) {
-                                this.showMessage(data.msg);
-                                return;
+                        api.login({
+                            account: this.form.account,
+                            password: this.form.password
+                        }).then(data => {
+                            if (data) {
+                                this.$store.commit('setAvator', data.avatar);
+                                this.$root.go('home_index');
                             }
-                            // Cookies.set('token', data.data.token, {expires: 7});
-                            // Cookies.set('user', this.form.account, {expires: 7});
-                            // Cookies.set('password', this.form.password, {expires: 7});
-                            this.$store.commit('setAvator', data.avatar);
-                            // if (this.form.account === 'iview_admin') {
-                            //     Cookies.set('access', 0);
-                            // } else {
-                            //     Cookies.set('access', 1);
-                            // }
-                            this.$router.push({
-                                name: 'home_index'
-                            });
                         });
 
                     }
-                });
-            },
-            showMessage (message) {
-                this.$Message.error({
-                    background: true,
-                    content: '登录失败'
                 });
             }
         }

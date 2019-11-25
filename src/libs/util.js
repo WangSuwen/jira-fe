@@ -10,20 +10,6 @@ util.title = function (title) {
     window.document.title = title;
 };
 
-
-
-const ajaxUrl = 'localhost:3000';
-
-let token= getToken();
-util.ajax = axios.create({
-   baseURL: ajaxUrl,
-    timeout: 30000,
-    headers: {
-        "Content-Type": 'application/json'
-        ,"token":token
-    },
-    //withCredentials: true, // default
-});
 /*
 axios.interceptors.response.use(function (response) {
     // 对响应数据做点什么

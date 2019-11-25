@@ -1,22 +1,23 @@
 import Vue from 'vue';
-// import iView from 'iview';
-// import 'iview/dist/styles/iview.css';
 import iView from 'view-design';
-// import style
 import 'view-design/dist/styles/iview.css';
 import {router} from './router/index';
 import {appRouter} from './router/router';
 import store from './store';
 import App from './app.vue';
+import Ajax from './apis/Ajax.js';
+import vueInit from './mixins/vue-init';
 import { VirtualScroller } from 'vue-virtual-scroller';
 
 Vue.use(iView);
+Vue.use(Ajax);
 Vue.component('virtual-scroller', VirtualScroller);
 
 new Vue({
     el: '#app',
-    router: router,
-    store: store,
+    router,
+    store,
+    mixins: [vueInit],
     render: h => h(App),
     data: {
         currentPageName: ''

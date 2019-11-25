@@ -73,7 +73,7 @@ export const appRouter = [
         title: '首页看板',
         component: Main,
         children: [
-            { path: '', title: '首页看板', name: 'home_index', component: resolve => { require(['@/views/home/home.vue'], resolve); } }
+            { path: 'home_index', title: '首页看板', name: 'home_index', component: resolve => { require(['@/views/home/home.vue'], resolve); } }
         ]
     },
     {

@@ -217,7 +217,6 @@
                         }
                         else {
                             api.add(this.product).then(function (data) {
-                                debugger
                                 if (data.status != null && data.status == 0) {
                                     self.$Message.info('添加成功!');
                                     self.$router.push({path: '/product/list'})

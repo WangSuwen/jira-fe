@@ -202,9 +202,7 @@ export default {
         save()
         {
             this.$refs['storeInfo'].validate((valid) => {
-                debugger
                 if (valid) {
-
                     var self = this;
                     api.updateStore(this.storeInfo).then(function (data) {
                         if (data.status==0)
