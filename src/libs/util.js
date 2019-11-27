@@ -6,7 +6,7 @@ import Cookies from 'js-cookie';
 
 let util = {};
 util.title = function (title) {
-    title = title || '商城系统';
+    title = title || 'JIRA';
     window.document.title = title;
 };
 
