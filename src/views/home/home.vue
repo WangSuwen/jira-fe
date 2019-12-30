@@ -58,6 +58,7 @@
 import countUp from './components/countUp.vue';
 import inforCard from './components/inforCard.vue';
 import api from '@/apis/home';
+import userApi from '@/apis/user.js';
 
 
 export default {
@@ -83,24 +84,29 @@ export default {
     },
     methods: {
         //初始化属性
-        init()
-        {
-            var  self=this;
-            api.toDeliverCount().then(function (data) {
-                self.count.toDeliverCount=data.data;
+        init() {
+            // var  self=this;
+            // api.toDeliverCount().then(function (data) {
+            //     self.count.toDeliverCount=data.data;
+            // });
+            // api.recentWeeklyCount().then(function (data) {
+            //     self.count.recentWeeklyCount=data.data;
+            // });
+            // api.totalIncome().then(function (data) {
+            //     self.count.totalIncome=data.data;
+            // });
+            // api.recentWeeklyIncome().then(function (data) {
+            //     self.count.recentWeeklyIncome=data.data;
+            // });
+            // setTimeout(() => {
+            //     self.init();
+            // }, 600000);
+            this.getUserInfo();
+        },
+        getUserInfo () {
+            userApi.getUserInfo().then(userList => {
+                console.log(userList);
             });
-            api.recentWeeklyCount().then(function (data) {
-                self.count.recentWeeklyCount=data.data;
-            });
-            api.totalIncome().then(function (data) {
-                self.count.totalIncome=data.data;
-            });
-            api.recentWeeklyIncome().then(function (data) {
-                self.count.recentWeeklyIncome=data.data;
-            });
-            setTimeout(() => {
-                self.init();
-            }, 600000);
         }
     },
     created() {

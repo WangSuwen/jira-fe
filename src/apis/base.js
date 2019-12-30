@@ -35,8 +35,8 @@ service.interceptors.response.use(
     if (response && response.data) {
       if (response.data.code === 200) {
         return response.data.data;
-      } else if (response.data.code === 10006) {
-        window.location.href = window.location.origin + '/#/management/login';
+      } else if (response.data.code === 10002) {
+        window.location.href = window.location.origin + '/#/login';
       } else {
         showErrMsg(response.data.msg);
         return null;
