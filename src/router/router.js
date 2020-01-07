@@ -134,6 +134,15 @@ export const appRouter = [
     }
 ];
 
+export const testRouter = {
+    path: '/test-page',
+    meta: {
+        title: '测试页面'
+    },
+    name: 'testPage',
+    component: resolve => { require(['@/views/test.vue'], resolve); }
+};
+
 // 所有上面定义的路由都要写在下面的routers里
 export const routers = [
     loginRouter,
@@ -141,6 +150,7 @@ export const routers = [
     preview,
     locking,
     ...appRouter,
+    testRouter,
     page500,
     page403,
     page404
